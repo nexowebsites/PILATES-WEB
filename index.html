@@ -187,7 +187,7 @@
       color: white;
     }
 
-    /* PILARES */
+    /* PILARES / ¿POR QUÉ ELEGIRNOS? */
     .pillars {
       display: flex;
       gap: 30px;
@@ -240,6 +240,122 @@
       margin-bottom: 40px;
     }
 
+    /* SOBRE NOSOTROS */
+    .sobre-nosotros {
+      background: var(--beige);
+    }
+
+    .emotional-box {
+      background: var(--white);
+      padding: 35px;
+      border-radius: 20px;
+      border-left: 4px solid var(--olive);
+    }
+
+    .emotional-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .emotional-box p {
+      color: #aaa59d;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* PROFESORES */
+    .teachers {
+      background: var(--cream);
+    }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .teacher {
+      background: #111214;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .teacher-image {
+      height: 320px;
+      width: 100%;
+    }
+
+    .teacher-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .teacher-info {
+      padding: 28px;
+    }
+
+    .teacher-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+
+    .teacher-role {
+      color: var(--olive);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .teacher-info p {
+      color: #c8c3bb;
+      font-size: 14px;
+    }
+
+    /* FOTOS Y VIDEOS */
+    .media-section {
+      background: var(--beige);
+      text-align: center;
+    }
+
+    .media-container {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid #2a2c2e;
+    }
+
+    .media-container p {
+      color: var(--brown);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .media-slider-placeholder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-size: 18px;
+      color: var(--olive);
+      font-weight: 600;
+      padding: 30px;
+      background: var(--cream);
+      border-radius: 12px;
+    }
+
+    /* ¿POR QUÉ ELEGIRNOS? */
+    .why-us {
+      background: var(--cream);
+    }
+
     /* ARANCELES & PACKS */
     .aranceles {
       background: var(--beige);
@@ -247,9 +363,11 @@
 
     .packs-wrapper {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1fr;
       gap: 40px;
       align-items: start;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .packs-list {
@@ -316,65 +434,6 @@
       margin-left: 10px;
     }
 
-    .emotional-box {
-      background: var(--white);
-      padding: 35px;
-      border-radius: 20px;
-      border-left: 4px solid var(--olive);
-    }
-
-    .emotional-box h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      margin-bottom: 15px;
-      color: var(--dark);
-    }
-
-    .emotional-box p {
-      color: #aaa59d;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    /* AVISOS */
-    .avisos {
-      background: var(--cream);
-    }
-
-    .avisos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .aviso-card {
-      background: var(--white);
-      padding: 28px;
-      border-radius: 18px;
-      border: 1px solid #2a2c2e;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-    }
-
-    .aviso-badge {
-      display: inline-block;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: var(--cream);
-      color: var(--olive);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      font-size: 18px;
-    }
-
-    .aviso-card p {
-      font-size: 15px;
-      color: var(--dark);
-      font-weight: 500;
-    }
-
     /* HORARIOS */
     .schedule {
       background: var(--white);
@@ -430,58 +489,43 @@
       border-radius: 50px;
     }
 
-    /* PROFESORES */
-    .teachers {
-      background: var(--beige);
+    /* AVISOS */
+    .avisos {
+      background: var(--cream);
     }
 
-    .teacher-grid {
+    .avisos-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .teacher {
-      background: #111214;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    }
-
-    .teacher-image {
-      height: 320px;
-      width: 100%;
-    }
-
-    .teacher-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .teacher-info {
+    .aviso-card {
+      background: var(--white);
       padding: 28px;
+      border-radius: 18px;
+      border: 1px solid #2a2c2e;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
     }
 
-    .teacher-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      margin-bottom: 6px;
-    }
-
-    .teacher-role {
+    .aviso-badge {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--cream);
       color: var(--olive);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 14px;
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 18px;
     }
 
-    .teacher-info p {
-      color: #c8c3bb;
-      font-size: 14px;
+    .aviso-card p {
+      font-size: 15px;
+      color: var(--dark);
+      font-weight: 500;
     }
 
     /* CONTACTO */
@@ -654,10 +698,10 @@
     </a>
     <nav>
       <a href="#inicio">Inicio</a>
-      <a href="#aranceles">Aranceles</a>
-      <a href="#avisos">Avisos</a>
-      <a href="#horarios">Horarios</a>
       <a href="#profesores">Profesores</a>
+      <a href="#aranceles">Aranceles</a>
+      <a href="#sobre-nosotros">Sobre nosotros</a>
+      <a href="#horarios">Horarios y avisos</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </div>
@@ -665,7 +709,7 @@
 
 <main>
 
-  <!-- HERO -->
+  <!-- 1. HERO / INICIO -->
   <section class="hero" id="inicio">
     <div class="hero-content">
       <div class="small-title">Bienestar · Movimiento </div>
@@ -673,11 +717,6 @@
       <div class="hero-buttons">
         <a class="button" href="#aranceles">Ver Aranceles</a>
         <a class="button button-outline" href="https://wa.me/5491123063516" target="_blank">Escribinos</a>
-      </div>
-      <div class="pillars">
-        <div class="pillar-item"><div><strong>Cuerpo</strong><span>Más fuerte</span></div></div>
-        <div class="pillar-item"><div><strong>Mente</strong><span>Más tranquila</span></div></div>
-        <div class="pillar-item"><div><strong>Energía</strong><span>Más vital</span></div></div>
       </div>
     </div>
 
@@ -687,72 +726,19 @@
     </div>
   </section>
 
-  <!-- ARANCELES -->
-  <section class="aranceles" id="aranceles">
+  <!-- 2. SOBRE NOSOTROS -->
+  <section class="sobre-nosotros" id="sobre-nosotros">
     <div class="section-container">
-      <div class="section-label">Planes Mensuales y Aranceles</div>
-      <div class="packs-wrapper">
-        <div class="packs-list">
-          <div class="pack-card" onclick="openBooking('Pack 4 Clases', '$45.000')">
-            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 4 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
-            <div class="pack-price">$45.000</div>
-          </div>
-          <div class="pack-card" onclick="openBooking('Pack 6 Clases', '$50.000')">
-            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 6 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
-            <div class="pack-price">$50.000</div>
-          </div>
-          <div class="pack-card" onclick="openBooking('Pack 8 Clases', '$55.000')">
-            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 8 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
-            <div class="pack-price">$55.000</div>
-          </div>
-          <div class="pack-card" onclick="openBooking('Pack 10 Clases', '$70.000')">
-            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 10 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
-            <div class="pack-price">$70.000</div>
-          </div>
-          <div class="pack-card" onclick="openBooking('Pack 12 Clases', '$75.000')">
-            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 12 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
-            <div class="pack-price">$75.000</div>
-          </div>
-        </div>
-        <div class="emotional-box">
-          <h3>Sobre nosotros</h3>
-          <p>Somos un estudio integral del Bienestar y Movimiento que ofrece equipamientos originales del método con el objetivo de alcanzar la reeducación postural y acondicionamiento físico.</p>
-        </div>
+      <div class="section-label">Institucional</div>
+      <h2 class="section-title">Sobre nosotros</h2>
+      <div class="emotional-box">
+        <h3>Nuestro Estudio</h3>
+        <p>Somos un estudio integral del Bienestar y Movimiento que ofrece equipamientos originales del método con el objetivo de alcanzar la reeducación postural y acondicionamiento físico.</p>
       </div>
     </div>
   </section>
 
-  <!-- AVISOS -->
-  <section class="avisos" id="avisos">
-    <div class="section-container">
-      <div class="section-label">Información Útil</div>
-      <h2 class="section-title">Avisos Importantes</h2>
-      <div class="avisos-grid">
-        <div class="aviso-card"><div class="aviso-badge">🗓️</div><p>Los abonos se realizan del 1 al 10 de cada mes.</p></div>
-        <div class="aviso-card"><div class="aviso-badge">⚠️</div><p>Pasada la fecha se abona un recargo del 15%.</p></div>
-        <div class="aviso-card"><div class="aviso-badge">💳</div><p>La seña del pack de clases tiene un valor de $20.000.-</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HORARIOS -->
-  <section class="schedule" id="horarios">
-    <div class="section-container">
-      <div class="section-label">Disponibilidad</div>
-      <h2 class="section-title">Horarios Disponibles</h2>
-      <div class="schedule-grid">
-        <div class="schedule-card"><span class="date-badge"></span><h3>Viernes</h3><span class="time-slot">09:30 hs</span><span class="time-slot">17:00 hs</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Sábado</h3><span class="time-slot">Sin horarios disponibles</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Lunes</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Martes</h3><span class="time-slot">08:30 hs</span><span class="time-slot">09:30 hs</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Miércoles</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Jueves</h3><span class="time-slot">Sin horarios disponibles</span></div>
-      </div>
-      <div class="schedule-note">💬 Comunicate con nosotros a traves de whatsapp.</div>
-    </div>
-  </section>
-
-  <!-- PROFESORES -->
+  <!-- 3. INSTRUCTORAS -->
   <section class="teachers" id="profesores">
     <div class="section-container">
       <div class="section-label">Nuestro Equipo</div>
@@ -788,7 +774,96 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
+  <!-- 4. FOTOS Y VIDEOS -->
+  <section class="media-section">
+    <div class="section-container">
+      <div class="section-label">Galería</div>
+      <h2 class="section-title">Fotos y Videos</h2>
+      <div class="media-container">
+        <p>Explora un poco de nuestro espacio y clases de pilates.</p>
+        <div class="media-slider-placeholder">
+          <span>‹</span> Fotos y videos <span>›</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ¿POR QUÉ ELEGIRNOS? -->
+  <section class="why-us">
+    <div class="section-container">
+      <div class="section-label">Beneficios</div>
+      <h2 class="section-title">¿Por qué elegirnos?</h2>
+      <div class="pillars" style="margin-top: 0; border-top: none; justify-content: space-around;">
+        <div class="pillar-item"><div><strong>Cuerpo</strong><span>Más fuerte</span></div></div>
+        <div class="pillar-item"><div><strong>Mente</strong><span>Más tranquila</span></div></div>
+        <div class="pillar-item"><div><strong>Energía</strong><span>Más vital</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PACKS Y ARANCELES -->
+  <section class="aranceles" id="aranceles">
+    <div class="section-container">
+      <div class="section-label">Planes Mensuales</div>
+      <h2 class="section-title">Packs y Aranceles</h2>
+      <div class="packs-wrapper">
+        <div class="packs-list">
+          <div class="pack-card" onclick="openBooking('Pack 4 Clases', '$45.000')">
+            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 4 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
+            <div class="pack-price">$45.000</div>
+          </div>
+          <div class="pack-card" onclick="openBooking('Pack 6 Clases', '$50.000')">
+            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 6 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
+            <div class="pack-price">$50.000</div>
+          </div>
+          <div class="pack-card" onclick="openBooking('Pack 8 Clases', '$55.000')">
+            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 8 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
+            <div class="pack-price">$55.000</div>
+          </div>
+          <div class="pack-card" onclick="openBooking('Pack 10 Clases', '$70.000')">
+            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 10 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
+            <div class="pack-price">$70.000</div>
+          </div>
+          <div class="pack-card" onclick="openBooking('Pack 12 Clases', '$75.000')">
+            <div class="pack-info"><div class="pack-icon">🌿</div><div><div class="pack-title">Pack 12 Clases</div><div class="pack-cta">Haz clic para reservar</div></div></div>
+            <div class="pack-price">$75.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. HORARIOS -->
+  <section class="schedule" id="horarios">
+    <div class="section-container">
+      <div class="section-label">Disponibilidad</div>
+      <h2 class="section-title">Horarios</h2>
+      <div class="schedule-grid">
+        <div class="schedule-card"><span class="date-badge"></span><h3>Viernes</h3><span class="time-slot">09:30 hs</span><span class="time-slot">17:00 hs</span></div>
+        <div class="schedule-card"><span class="date-badge"></span><h3>Sábado</h3><span class="time-slot">Sin horarios disponibles</span></div>
+        <div class="schedule-card"><span class="date-badge"></span><h3>Lunes</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
+        <div class="schedule-card"><span class="date-badge"></span><h3>Martes</h3><span class="time-slot">08:30 hs</span><span class="time-slot">09:30 hs</span></div>
+        <div class="schedule-card"><span class="date-badge"></span><h3>Miércoles</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
+        <div class="schedule-card"><span class="date-badge"></span><h3>Jueves</h3><span class="time-slot">Sin horarios disponibles</span></div>
+      </div>
+      <div class="schedule-note">💬 Comunicate con nosotros a traves de whatsapp.</div>
+    </div>
+  </section>
+
+  <!-- 8. AVISOS -->
+  <section class="avisos">
+    <div class="section-container">
+      <div class="section-label">Información Útil</div>
+      <h2 class="section-title">Avisos</h2>
+      <div class="avisos-grid">
+        <div class="aviso-card"><div class="aviso-badge">🗓️</div><p>Los abonos se realizan del 1 al 10 de cada mes.</p></div>
+        <div class="aviso-card"><div class="aviso-badge">⚠️</div><p>Pasada la fecha se abona un recargo del 15%.</p></div>
+        <div class="aviso-card"><div class="aviso-badge">💳</div><p>La seña del pack de clases tiene un valor de $20.000.-</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CONTACTO -->
   <section class="contact" id="contacto">
     <div class="section-container">
       <div class="section-label">Contacto</div>
