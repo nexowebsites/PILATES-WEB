@@ -14,18 +14,18 @@
     }
     
     :root {
-      --beige: #030709;
-      --cream: #030709;
+      --bg-main: #07090b;
+      --bg-card: #111418;
+      --bg-card-alt: #161a20;
       --olive: #b89a55;
       --dark: #f1ede5;
       --brown: #a99a83;
-      --white: #111214;
-      --gold: #c9a15b;
+      --border-color: #242a32;
     }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
+      background: var(--bg-main);
       color: var(--dark);
       line-height: 1.6;
     }
@@ -40,16 +40,16 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(3, 7, 9, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(241, 237, 229, 0.08);
+      background: rgba(7, 9, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .nav {
       max-width: 1200px;
       margin: auto;
-      height: 82px;
-      padding: 0 30px;
+      height: 76px;
+      padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -57,10 +57,11 @@
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 27px;
-      letter-spacing: 1px;
+      font-size: 24px;
+      letter-spacing: 0.5px;
       text-decoration: none;
       color: var(--dark);
+      line-height: 1.1;
     }
 
     .logo span {
@@ -70,13 +71,13 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--olive);
-      margin-top: -5px;
+      margin-top: 2px;
     }
 
     nav a {
       text-decoration: none;
       color: var(--dark);
-      margin-left: 28px;
+      margin-left: 26px;
       font-size: 14px;
       transition: color 0.2s;
     }
@@ -92,14 +93,14 @@
       border: none;
       cursor: pointer;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       z-index: 1100;
       padding: 5px;
     }
 
     .menu-toggle span {
       display: block;
-      width: 28px;
+      width: 26px;
       height: 2px;
       background-color: var(--dark);
       transition: all 0.3s ease;
@@ -112,15 +113,15 @@
       right: -100%;
       width: 100%;
       height: 100vh;
-      background: rgba(3, 7, 9, 0.98);
-      backdrop-filter: blur(15px);
+      background: rgba(7, 9, 11, 0.98);
+      backdrop-filter: blur(20px);
       z-index: 1050;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 25px;
-      transition: right 0.4s ease;
+      gap: 22px;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .mobile-menu.active {
@@ -129,7 +130,7 @@
 
     .mobile-menu a {
       font-family: 'Playfair Display', serif;
-      font-size: 24px;
+      font-size: 22px;
       color: var(--dark);
       text-decoration: none;
       transition: color 0.2s;
@@ -139,112 +140,9 @@
       color: var(--olive);
     }
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      padding: 140px 7% 80px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 38%;
-      align-items: center;
-      gap: 40px;
-      position: relative;
-    }
-    
-    .hero-content {
-      width: 100%;
-      max-width: 620px;
-    }
-
-    .hero-image {
-      width: 100%;
-      max-width: 600px;
-      margin-left: 50px;
-      flex-shrink: 0;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 620px;
-      max-height: 620px;
-      object-fit: cover;
-      border-radius: 28px;
-      display: block;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-      mask-image: linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-    }
-
-    .small-title {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 12px;
-      color: var(--olive);
-      margin-bottom: 18px;
-      font-weight: 600;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 4vw, 52px);
-      font-weight: 500;
-      line-height: 0.98;
-      margin-bottom: 12px;
-    }
-
-    .hero h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--brown);
-      margin-bottom: 25px;
-    }
-
-    .hero p {
-      max-width: 500px;
-      font-size: 17px;
-      color: #c8c3bb;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 50px;
-      background: var(--olive);
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      transition: all 0.25s;
-      border: none;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(184,154,85,0.30);
-    }
-
-    .button-outline {
-      background: transparent;
-      border: 1px solid var(--dark);
-      color: var(--dark);
-    }
-
-    .button-outline:hover {
-      background: var(--dark);
-      color: white;
-    }
-
-    /* GENERAL SECTIONS (Uniform Background) */
+    /* GENERAL SECTIONS */
     section {
-      padding: 90px 7%;
-      background: var(--cream);
+      padding: 70px 6%;
     }
 
     .section-container {
@@ -257,34 +155,124 @@
       letter-spacing: 3px;
       color: var(--olive);
       font-size: 11px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-weight: 600;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 42px;
+      font-size: clamp(32px, 3.5vw, 42px);
       font-weight: 500;
-      margin-bottom: 40px;
+      margin-bottom: 35px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      padding: 120px 6% 60px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 40%;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .hero-content {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 550px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      border-radius: 24px;
+      display: block;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .small-title {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      color: var(--olive);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.2vw, 50px);
+      font-weight: 500;
+      line-height: 1.05;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 480px;
+      font-size: 16px;
+      color: #b5ada3;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 50px;
+      background: var(--olive);
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(184,154,85,0.3);
+    }
+
+    .button-outline {
+      background: transparent;
+      border: 1px solid var(--dark);
+      color: var(--dark);
+    }
+
+    .button-outline:hover {
+      background: var(--dark);
+      color: #07090b;
     }
 
     /* SOBRE NOSOTROS */
     .emotional-box {
-      background: var(--white);
+      background: var(--bg-card);
       padding: 35px;
       border-radius: 20px;
+      border: 1px solid var(--border-color);
       border-left: 4px solid var(--olive);
     }
 
     .emotional-box h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      margin-bottom: 15px;
+      font-size: 24px;
+      margin-bottom: 12px;
       color: var(--dark);
     }
 
     .emotional-box p {
-      color: #aaa59d;
+      color: #b5ada3;
       font-size: 15px;
       line-height: 1.7;
     }
@@ -293,18 +281,18 @@
     .teacher-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 25px;
     }
 
     .teacher {
-      background: #111214;
+      background: var(--bg-card);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      border: 1px solid var(--border-color);
     }
 
     .teacher-image {
-      height: 320px;
+      height: 280px;
       width: 100%;
     }
 
@@ -316,46 +304,46 @@
     }
 
     .teacher-info {
-      padding: 28px;
+      padding: 24px;
     }
 
     .teacher-info h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      margin-bottom: 6px;
+      font-size: 24px;
+      margin-bottom: 4px;
     }
 
     .teacher-role {
       color: var(--olive);
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       font-weight: 600;
     }
 
     .teacher-info p {
-      color: #c8c3bb;
-      font-size: 14px;
+      color: #b5ada3;
+      font-size: 13.5px;
     }
 
-    /* FOTOS Y VIDEOS (16:9 Format Grid) */
+    /* FOTOS Y VIDEOS (4 fotos horizontales 16:9) */
     .media-container {
-      background: var(--white);
+      background: var(--bg-card);
       padding: 30px;
       border-radius: 20px;
-      border: 1px solid #2a2c2e;
+      border: 1px solid var(--border-color);
     }
 
     .media-container p {
       color: var(--brown);
-      font-size: 16px;
-      margin-bottom: 25px;
+      font-size: 15px;
+      margin-bottom: 24px;
     }
 
     .media-grid-169 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
@@ -363,9 +351,9 @@
       width: 100%;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      border-radius: 12px;
-      background: var(--cream);
-      border: 1px solid #2a2c2e;
+      border-radius: 14px;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
     }
 
     .media-item-169 img {
@@ -382,24 +370,20 @@
 
     /* ¿POR QUÉ ELEGIRNOS? */
     .why-us-box {
-      background: var(--white);
+      background: var(--bg-card);
       padding: 35px;
       border-radius: 20px;
-      border: 1px solid #2a2c2e;
+      border: 1px solid var(--border-color);
     }
 
     .why-us-box p {
-      color: #c8c3bb;
+      color: #b5ada3;
       font-size: 16px;
       line-height: 1.7;
     }
 
     /* ARANCELES & PACKS */
     .packs-wrapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      align-items: start;
       max-width: 800px;
       margin: 0 auto;
     }
@@ -407,202 +391,191 @@
     .packs-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .pack-card {
-      background: var(--white);
-      padding: 22px 28px;
+      background: var(--bg-card);
+      padding: 20px 24px;
       border-radius: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      border: 1px solid transparent;
+      border: 1px solid var(--border-color);
       transition: all 0.25s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
     .pack-card:hover {
       border-color: var(--olive);
-      transform: translateX(6px);
-      box-shadow: 0 4px 15px rgba(184,154,85,0.15);
+      transform: translateX(4px);
+      background: var(--bg-card-alt);
     }
 
     .pack-info {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 14px;
     }
 
     .pack-icon {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: var(--cream);
+      background: var(--bg-card-alt);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--olive);
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .pack-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 600;
       color: var(--dark);
     }
 
     .pack-price {
       font-family: 'Playfair Display', serif;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 600;
       color: var(--brown);
     }
 
     .pack-cta {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--olive);
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-left: 10px;
+      margin-top: 2px;
     }
 
-    /* HORARIOS */
+    /* HORARIOS Y AVISOS */
     .schedule-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
+      margin-bottom: 35px;
     }
 
     .schedule-card {
-      padding: 26px;
-      border: 1px solid #2a2c2e;
-      border-radius: 18px;
-      background: #111214;
+      padding: 22px;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      background: var(--bg-card);
     }
 
     .schedule-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-bottom: 15px;
-      color: var(--brown);
-    }
-
-    .schedule-card .date-badge {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--olive);
+      font-size: 20px;
       margin-bottom: 12px;
-      display: block;
+      color: var(--brown);
     }
 
     .time-slot {
-      background: var(--cream);
-      padding: 8px 12px;
-      border-radius: 8px;
+      background: var(--bg-card-alt);
+      padding: 6px 10px;
+      border-radius: 6px;
       font-size: 13px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       display: inline-block;
-      margin-right: 5px;
+      margin-right: 4px;
       color: var(--dark);
+      border: 1px solid var(--border-color);
     }
 
-    .schedule-note {
-      margin-top: 35px;
-      text-align: center;
-      font-size: 14px;
-      color: var(--brown);
-      background: var(--white);
-      padding: 16px;
-      border-radius: 50px;
-      border: 1px solid #2a2c2e;
-    }
-
-    /* AVISOS */
     .avisos-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 18px;
     }
 
     .aviso-card {
-      background: var(--white);
-      padding: 28px;
-      border-radius: 18px;
-      border: 1px solid #2a2c2e;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      background: var(--bg-card);
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
     }
 
     .aviso-badge {
-      display: inline-block;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: var(--cream);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--bg-card-alt);
       color: var(--olive);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 18px;
-      font-size: 18px;
+      margin-bottom: 14px;
+      font-size: 16px;
+      border: 1px solid var(--border-color);
     }
 
     .aviso-card p {
-      font-size: 15px;
+      font-size: 14.5px;
       color: var(--dark);
       font-weight: 500;
     }
 
-    /* CONTACTO (Unique Background color) */
+    .schedule-note {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--brown);
+      background: var(--bg-card);
+      padding: 14px;
+      border-radius: 40px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* CONTACTO (Color sutilmente diferenciado para destacar) */
     .contact {
-      background: #060a0e;
-      color: #f1ede5;
-      padding: 90px 7%;
+      background: #040507;
+      border-top: 1px solid var(--border-color);
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 40px;
     }
 
     .contact-item {
       display: flex;
       align-items: flex-start;
-      gap: 18px;
-      margin-bottom: 24px;
+      gap: 16px;
+      margin-bottom: 22px;
     }
 
     .contact-item-icon {
-      font-size: 20px;
-      color: #a99f8a;
-      margin-top: 3px;
+      font-size: 18px;
+      color: var(--olive);
+      margin-top: 2px;
     }
 
     .contact-item div h4 {
-      font-size: 14px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #a99f8a;
-      margin-bottom: 4px;
+      color: var(--brown);
+      margin-bottom: 3px;
     }
 
     .contact-item div p, .contact-item div a {
-      color: #ddd7cc;
+      color: #ded7cc;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     /* FOOTER */
     footer {
-      background: #030709;
-      padding: 30px 7%;
+      background: #040507;
+      padding: 25px 6%;
       text-align: center;
-      color: #8d8b87;
-      font-size: 13px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      color: #7a7772;
+      font-size: 12.5px;
+      border-top: 1px solid var(--border-color);
     }
 
     /* MODAL */
@@ -612,8 +585,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(5px);
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
       z-index: 2000;
       display: none;
       align-items: center;
@@ -626,60 +599,60 @@
     }
 
     .modal-card {
-      background: var(--cream);
+      background: var(--bg-card);
       width: 100%;
-      max-width: 500px;
-      border-radius: 24px;
-      padding: 35px;
+      max-width: 480px;
+      border-radius: 20px;
+      padding: 30px;
       position: relative;
-      border: 1px solid #2a2c2e;
+      border: 1px solid var(--border-color);
     }
 
     .modal-close {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 18px;
+      right: 18px;
       background: none;
       border: none;
-      font-size: 22px;
+      font-size: 20px;
       cursor: pointer;
       color: var(--brown);
     }
 
     .modal-title {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      margin-bottom: 8px;
+      font-size: 26px;
+      margin-bottom: 6px;
       color: var(--dark);
     }
 
     .modal-subtitle {
-      font-size: 14px;
+      font-size: 13.5px;
       color: var(--olive);
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       font-weight: 500;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .form-group label {
       display: block;
-      font-size: 12px;
+      font-size: 11.5px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       color: var(--brown);
       font-weight: 600;
     }
 
     .form-group input, .form-group select, .form-group textarea {
       width: 100%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid #35383b;
-      background: #111214;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card-alt);
       font-family: inherit;
       font-size: 14px;
       color: var(--dark);
@@ -689,33 +662,34 @@
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
     }
 
     .whatsapp-float {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
       background: #25d366;
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
+      font-size: 28px;
       box-shadow: 0 4px 15px rgba(37,211,102,0.4);
       z-index: 1500;
       text-decoration: none;
     }
 
-    @media (max-width: 850px) {
-      .hero { grid-template-columns: 1fr; padding-top: 130px; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 105px; min-height: auto; }
       .hero-image { display: none; }
       nav { display: none; }
       .menu-toggle { display: flex; }
-      .packs-wrapper, .teacher-grid, .contact-grid, .schedule-grid, .avisos-grid { grid-template-columns: 1fr; }
+      .teacher-grid, .schedule-grid, .avisos-grid, .contact-grid, .media-grid-169 { grid-template-columns: 1fr; }
+      section { padding: 50px 5%; }
     }
   </style>
 </head>
@@ -725,6 +699,7 @@
   <div class="nav">
     <a href="#inicio" class="logo">
       Estudio Pilates Health Center
+      <span>Health Center</span>
     </a>
     <nav>
       <a href="#inicio">Inicio</a>
@@ -759,6 +734,11 @@
     <div class="hero-content">
       <div class="small-title">Bienestar · Movimiento </div>
       <h1>Un espacio para conectar con tu mente, fortalecer tu cuerpo y sentirte mejor cada día.</h1>
+      <p>Equipamientos originales del método enfocados en tu reeducación postural y acondicionamiento físico.</p>
+      <div class="hero-buttons">
+        <a class="button" href="#aranceles">Ver Aranceles</a>
+        <a class="button button-outline" href="https://wa.me/5491123063516" target="_blank">Escribinos</a>
+      </div>
     </div>
 
     <!-- FOTO DE ARRIBA (HERO) -->
@@ -774,7 +754,7 @@
       <h2 class="section-title">Acerca de nosotros</h2>
       <div class="emotional-box">
         <h3>Nuestro Estudio</h3>
-        <p>En PILATES HEALTH CENTER creemos que el movimiento es una herramienta fundamental para cuidar, fortalecer y transformar nuestro cuerpo.<br>Somos un estudio integral del bienestar y movimiento, dedicado a acompañar a cada persona en el desarrollo de una mejor calidad de vida a través del método Pilates, el movimiento consciente y el trabajo corporal personalizado.<br>Contamos con equipamientos originales del método Pilates y un espacio especialmente pensado para brindar una experiencia profesional, personalizada y de calidad.<br>Nuestro objetivo es trabajar sobre la reeducación postural, el acondicionamiento físico, la movilidad, el equilibrio, la fuerza y la conciencia corporal, respetando las necesidades y posibilidades de cada persona.</p>
+        <p>Somos un estudio integral del Bienestar y Movimiento que ofrece equipamientos originales del método con el objetivo de alcanzar la reeducación postural y acondicionamiento físico.</p>
       </div>
     </div>
   </section>
@@ -786,8 +766,7 @@
       <h2 class="section-title">Profesores</h2>
 
       <div class="teacher-grid">
-        
-        <!-- PROFESORA 1: ROSARIO -->
+        <!-- PROFESORA 1 -->
         <div class="teacher">
           <div class="teacher-image">
             <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/imagen_2026-09-25_122441742.png?raw=true" alt="Rosario Iuzzolino">
@@ -799,7 +778,7 @@
           </div>
         </div>
 
-        <!-- PROFESORA 2: GISELA -->
+        <!-- PROFESORA 2 -->
         <div class="teacher">
           <div class="teacher-image">
             <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/WhatsApp%20Image%202026-09-28%20at%201.20.08%20PM.jpeg?raw=true" alt="Gisela Rol">
@@ -810,12 +789,11 @@
             <p>Instructora de pilates hace más de 10 años.<br>Profesora Universitaria de Educación Física (UNLAM).<br>Instructora en Entrenamiento Funcional (INTERVAL).<br>Instructora en Pilates Reformer (POLESTAR).</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- 4. FOTOS Y VIDEOS (16:9 Format) -->
+  <!-- 4. FOTOS Y VIDEOS (4 fotos horizontales 16:9) -->
   <section class="media-section">
     <div class="section-container">
       <div class="section-label">Galería</div>
@@ -823,26 +801,34 @@
       <div class="media-container">
         <p>Explora un poco de nuestro espacio y clases de pilates en formato horizontal.</p>
         <div class="media-grid-169">
-          <!-- Reemplaza src con tus imágenes horizontales (16:9) -->
+          <!-- Foto 1 -->
           <div class="media-item-169">
-            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/IMG_9865.JPG?raw=true" alt="Espacio Pilates 1">
+            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/imagen_2026-09-25_124609861.png?raw=true" alt="Estudio Pilates 1">
           </div>
+          <!-- Foto 2 -->
           <div class="media-item-169">
-            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/IMG_9864.JPG?raw=true" alt="Espacio Pilates 2">
+            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/imagen_2026-09-25_122441742.png?raw=true" alt="Estudio Pilates 2">
+          </div>
+          <!-- Foto 3 -->
+          <div class="media-item-169">
+            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/imagen_2026-09-25_124609861.png?raw=true" alt="Estudio Pilates 3">
+          </div>
+          <!-- Foto 4 -->
+          <div class="media-item-169">
+            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/WhatsApp%20Image%202026-09-28%20at%201.20.08%20PM.jpeg?raw=true" alt="Estudio Pilates 4">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. ¿POR QUÉ ELEGIRNOS? (Texto Único) -->
+  <!-- 5. ¿POR QUÉ ELEGIRNOS? -->
   <section class="why-us">
     <div class="section-container">
+      <div class="section-label">Filosofía</div>
       <h2 class="section-title">¿Por qué elegirnos?</h2>
       <div class="why-us-box">
-        <p>¿Por qué elegir PILATES HEALTH CENTER?
-
-Atención personalizada: adaptamos el trabajo a las necesidades, objetivos y posibilidades de cada alumno.<br>Método Pilates: utilizamos los principios del método para desarrollar fuerza, flexibilidad, movilidad, equilibrio y conciencia corporal.<br>Equipamiento original: contamos con equipamientos propios del método Pilates para ampliar las posibilidades de trabajo y lograr un entrenamiento completo.<br>Reeducación postural: buscamos favorecer una mejor alineación y conciencia de la postura durante el movimiento y en la vida cotidiana.<br>Acondicionamiento físico: trabajamos de manera integral para mejorar la fuerza, movilidad, coordinación y resistencia.<br>Bienestar integral: entendemos el ejercicio no solamente como entrenamiento, sino como una forma de conectar con el cuerpo, sentirse mejor y mejorar la calidad de vida.</p>
+        <p>Te ofrecemos un ambiente personalizado y profesional para conectar cuerpo y mente, mejorando tu postura, incrementando tu fuerza y renovando tu energía de forma integral en cada clase.</p>
       </div>
     </div>
   </section>
@@ -879,22 +865,21 @@ Atención personalizada: adaptamos el trabajo a las necesidades, objetivos y pos
     </div>
   </section>
 
-  <!-- 7. HORARIOS -->
+  <!-- 7. HORARIOS Y AVISOS -->
   <section class="schedule" id="horarios">
     <div class="section-container">
       <div class="section-label">Disponibilidad</div>
       <h2 class="section-title">Horarios y avisos</h2>
-      <div class="schedule-grid">
-        <div class="schedule-card"><span class="date-badge"></span><h3>Viernes</h3><span class="time-slot">09:30 hs</span><span class="time-slot">17:00 hs</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Sábado</h3><span class="time-slot">Sin horarios disponibles</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Lunes</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Martes</h3><span class="time-slot">08:30 hs</span><span class="time-slot">09:30 hs</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Miércoles</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
-        <div class="schedule-card"><span class="date-badge"></span><h3>Jueves</h3><span class="time-slot">Sin horarios disponibles</span></div>
-      </div>
       
-      <!-- 8. AVISOS INTEGRADOS EN LA MISMA SECCIÓN DE HORARIOS -->
-      <div style="margin-top: 50px;"></div>
+      <div class="schedule-grid">
+        <div class="schedule-card"><h3>Viernes</h3><span class="time-slot">09:30 hs</span><span class="time-slot">17:00 hs</span></div>
+        <div class="schedule-card"><h3>Sábado</h3><span class="time-slot">Sin horarios</span></div>
+        <div class="schedule-card"><h3>Lunes</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
+        <div class="schedule-card"><h3>Martes</h3><span class="time-slot">08:30 hs</span><span class="time-slot">09:30 hs</span></div>
+        <div class="schedule-card"><h3>Miércoles</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
+        <div class="schedule-card"><h3>Jueves</h3><span class="time-slot">Sin horarios</span></div>
+      </div>
+
       <div class="avisos-grid">
         <div class="aviso-card"><div class="aviso-badge">🗓️</div><p>Los abonos se realizan del 1 al 10 de cada mes.</p></div>
         <div class="aviso-card"><div class="aviso-badge">⚠️</div><p>Pasada la fecha se abona un recargo del 15%.</p></div>
@@ -905,7 +890,7 @@ Atención personalizada: adaptamos el trabajo a las necesidades, objetivos y pos
     </div>
   </section>
 
-  <!-- 9. CONTACTO (Único color de fondo diferente) -->
+  <!-- 8. CONTACTO -->
   <section class="contact" id="contacto">
     <div class="section-container">
       <div class="section-label">Contacto</div>
@@ -916,7 +901,7 @@ Atención personalizada: adaptamos el trabajo a las necesidades, objetivos y pos
             <div class="contact-item-icon">📍</div>
             <div>
               <h4>Dirección</h4>
-              <p><a href="https://share.google/G361OpDEb7OKfJzwn" target="_blank" style="color: #ddd7cc; text-decoration: underline;">Av. Don Bosco 5612, B1754 Villa Luzuriaga<br>Provincia de Buenos Aires, Argentina</a></p>
+              <p><a href="https://share.google/G361OpDEb7OKfJzwn" target="_blank" style="text-decoration: underline;">Av. Don Bosco 5612, B1754 Villa Luzuriaga<br>Provincia de Buenos Aires, Argentina</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -933,7 +918,7 @@ Atención personalizada: adaptamos el trabajo a las necesidades, objetivos y pos
             <div class="contact-item-icon">📷</div>
             <div><h4>Instagram</h4><p><a href="https://instagram.com/pilateshealthcenter" target="_blank">@pilateshealthcenter</a></p></div>
           </div>
-          <a href="https://wa.me/5491123063516" target="_blank" class="button" style="margin-top:20px;">Contactar por WhatsApp</a>
+          <a href="https://wa.me/5491123063516" target="_blank" class="button" style="margin-top:16px;">Contactar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -962,7 +947,7 @@ Atención personalizada: adaptamos el trabajo a las necesidades, objetivos y pos
       </div>
       <div class="form-group"><label>Forma de Pago</label><select id="metodoPago" required><option value="Efectivo">Efectivo</option><option value="Transferencia">Transferencia</option></select></div>
       <div class="form-group"><label>Comentario (Opcional)</label><textarea id="descripcion" rows="2" placeholder="Observaciones"></textarea></div>
-      <button type="submit" class="button" style="width:100%; margin-top:10px;">Confirmar y Enviar por WhatsApp</button>
+      <button type="submit" class="button" style="width:100%; margin-top:8px;">Confirmar y Enviar por WhatsApp</button>
     </form>
   </div>
 </div>
