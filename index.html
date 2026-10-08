@@ -14,7 +14,7 @@
     }
     
     :root {
-      --beige: #0d0e10;
+      --beige: #030709;
       --cream: #030709;
       --olive: #b89a55;
       --dark: #f1ede5;
@@ -82,6 +82,60 @@
     }
 
     nav a:hover {
+      color: var(--olive);
+    }
+
+    /* HAMBURGER MENU BUTTON */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 1100;
+      padding: 5px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background-color: var(--dark);
+      transition: all 0.3s ease;
+    }
+
+    /* MOBILE MENU OVERLAY */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(3, 7, 9, 0.98);
+      backdrop-filter: blur(15px);
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      transition: right 0.4s ease;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover {
       color: var(--olive);
     }
 
@@ -187,36 +241,10 @@
       color: white;
     }
 
-    /* PILARES / ¿POR QUÉ ELEGIRNOS? */
-    .pillars {
-      display: flex;
-      gap: 30px;
-      margin-top: 50px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(169,154,131,0.20);
-    }
-
-    .pillar-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-    }
-
-    .pillar-item strong {
-      display: block;
-      color: var(--dark);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .pillar-item span {
-      color: var(--brown);
-    }
-
-    /* GENERAL SECTIONS */
+    /* GENERAL SECTIONS (Uniform Background) */
     section {
       padding: 90px 7%;
+      background: var(--cream);
     }
 
     .section-container {
@@ -241,10 +269,6 @@
     }
 
     /* SOBRE NOSOTROS */
-    .sobre-nosotros {
-      background: var(--beige);
-    }
-
     .emotional-box {
       background: var(--white);
       padding: 35px;
@@ -266,10 +290,6 @@
     }
 
     /* PROFESORES */
-    .teachers {
-      background: var(--cream);
-    }
-
     .teacher-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -319,15 +339,10 @@
       font-size: 14px;
     }
 
-    /* FOTOS Y VIDEOS */
-    .media-section {
-      background: var(--beige);
-      text-align: center;
-    }
-
+    /* FOTOS Y VIDEOS (16:9 Format Grid) */
     .media-container {
       background: var(--white);
-      padding: 40px;
+      padding: 30px;
       border-radius: 20px;
       border: 1px solid #2a2c2e;
     }
@@ -335,32 +350,51 @@
     .media-container p {
       color: var(--brown);
       font-size: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
-    .media-slider-placeholder {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .media-grid-169 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      font-size: 18px;
-      color: var(--olive);
-      font-weight: 600;
-      padding: 30px;
-      background: var(--cream);
+    }
+
+    .media-item-169 {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
       border-radius: 12px;
+      background: var(--cream);
+      border: 1px solid #2a2c2e;
+    }
+
+    .media-item-169 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .media-item-169 img:hover {
+      transform: scale(1.03);
     }
 
     /* ¿POR QUÉ ELEGIRNOS? */
-    .why-us {
-      background: var(--cream);
+    .why-us-box {
+      background: var(--white);
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid #2a2c2e;
+    }
+
+    .why-us-box p {
+      color: #c8c3bb;
+      font-size: 16px;
+      line-height: 1.7;
     }
 
     /* ARANCELES & PACKS */
-    .aranceles {
-      background: var(--beige);
-    }
-
     .packs-wrapper {
       display: grid;
       grid-template-columns: 1fr;
@@ -435,10 +469,6 @@
     }
 
     /* HORARIOS */
-    .schedule {
-      background: var(--white);
-    }
-
     .schedule-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -484,16 +514,13 @@
       text-align: center;
       font-size: 14px;
       color: var(--brown);
-      background: var(--cream);
+      background: var(--white);
       padding: 16px;
       border-radius: 50px;
+      border: 1px solid #2a2c2e;
     }
 
     /* AVISOS */
-    .avisos {
-      background: var(--cream);
-    }
-
     .avisos-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -528,10 +555,11 @@
       font-weight: 500;
     }
 
-    /* CONTACTO */
+    /* CONTACTO (Unique Background color) */
     .contact {
-      background: #030709;
+      background: #060a0e;
       color: #f1ede5;
+      padding: 90px 7%;
     }
 
     .contact-grid {
@@ -569,7 +597,7 @@
 
     /* FOOTER */
     footer {
-      background: #08090b;
+      background: #030709;
       padding: 30px 7%;
       text-align: center;
       color: #8d8b87;
@@ -604,6 +632,7 @@
       border-radius: 24px;
       padding: 35px;
       position: relative;
+      border: 1px solid #2a2c2e;
     }
 
     .modal-close {
@@ -685,6 +714,7 @@
       .hero { grid-template-columns: 1fr; padding-top: 130px; }
       .hero-image { display: none; }
       nav { display: none; }
+      .menu-toggle { display: flex; }
       .packs-wrapper, .teacher-grid, .contact-grid, .schedule-grid, .avisos-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -700,12 +730,27 @@
       <a href="#inicio">Inicio</a>
       <a href="#profesores">Profesores</a>
       <a href="#aranceles">Aranceles</a>
-      <a href="#sobre-nosotros">Sobre nosotros</a>
+      <a href="#sobre-nosotros">Acerca de nosotros</a>
       <a href="#horarios">Horarios y avisos</a>
       <a href="#contacto">Contacto</a>
     </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio" class="mobile-link">Inicio</a>
+  <a href="#profesores" class="mobile-link">Profesores</a>
+  <a href="#aranceles" class="mobile-link">Aranceles</a>
+  <a href="#sobre-nosotros" class="mobile-link">Acerca de nosotros</a>
+  <a href="#horarios" class="mobile-link">Horarios y avisos</a>
+  <a href="#contacto" class="mobile-link">Contacto</a>
+</div>
 
 <main>
 
@@ -730,7 +775,7 @@
   <section class="sobre-nosotros" id="sobre-nosotros">
     <div class="section-container">
       <div class="section-label">Institucional</div>
-      <h2 class="section-title">Sobre nosotros</h2>
+      <h2 class="section-title">Acerca de nosotros</h2>
       <div class="emotional-box">
         <h3>Nuestro Estudio</h3>
         <p>Somos un estudio integral del Bienestar y Movimiento que ofrece equipamientos originales del método con el objetivo de alcanzar la reeducación postural y acondicionamiento físico.</p>
@@ -742,7 +787,7 @@
   <section class="teachers" id="profesores">
     <div class="section-container">
       <div class="section-label">Nuestro Equipo</div>
-      <h2 class="section-title">Instructoras</h2>
+      <h2 class="section-title">Profesores</h2>
 
       <div class="teacher-grid">
         
@@ -774,29 +819,33 @@
     </div>
   </section>
 
-  <!-- 4. FOTOS Y VIDEOS -->
+  <!-- 4. FOTOS Y VIDEOS (16:9 Format) -->
   <section class="media-section">
     <div class="section-container">
       <div class="section-label">Galería</div>
       <h2 class="section-title">Fotos y Videos</h2>
       <div class="media-container">
-        <p>Explora un poco de nuestro espacio y clases de pilates.</p>
-        <div class="media-slider-placeholder">
-          <span>‹</span> Fotos y videos <span>›</span>
+        <p>Explora un poco de nuestro espacio y clases de pilates en formato horizontal.</p>
+        <div class="media-grid-169">
+          <!-- Reemplaza src con tus imágenes horizontales (16:9) -->
+          <div class="media-item-169">
+            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/imagen_2026-09-25_124609861.png?raw=true" alt="Espacio Pilates 1">
+          </div>
+          <div class="media-item-169">
+            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/imagen_2026-09-25_122441742.png?raw=true" alt="Espacio Pilates 2">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. ¿POR QUÉ ELEGIRNOS? -->
+  <!-- 5. ¿POR QUÉ ELEGIRNOS? (Texto Único) -->
   <section class="why-us">
     <div class="section-container">
-      <div class="section-label">Beneficios</div>
+      <div class="section-label">Filosofía</div>
       <h2 class="section-title">¿Por qué elegirnos?</h2>
-      <div class="pillars" style="margin-top: 0; border-top: none; justify-content: space-around;">
-        <div class="pillar-item"><div><strong>Cuerpo</strong><span>Más fuerte</span></div></div>
-        <div class="pillar-item"><div><strong>Mente</strong><span>Más tranquila</span></div></div>
-        <div class="pillar-item"><div><strong>Energía</strong><span>Más vital</span></div></div>
+      <div class="why-us-box">
+        <p>Te ofrecemos un ambiente personalizado y profesional para conectar cuerpo y mente, mejorando tu postura, incrementando tu fuerza y renovando tu energía de forma integral en cada clase.</p>
       </div>
     </div>
   </section>
@@ -805,7 +854,7 @@
   <section class="aranceles" id="aranceles">
     <div class="section-container">
       <div class="section-label">Planes Mensuales</div>
-      <h2 class="section-title">Packs y Aranceles</h2>
+      <h2 class="section-title">Aranceles</h2>
       <div class="packs-wrapper">
         <div class="packs-list">
           <div class="pack-card" onclick="openBooking('Pack 4 Clases', '$45.000')">
@@ -837,7 +886,7 @@
   <section class="schedule" id="horarios">
     <div class="section-container">
       <div class="section-label">Disponibilidad</div>
-      <h2 class="section-title">Horarios</h2>
+      <h2 class="section-title">Horarios y avisos</h2>
       <div class="schedule-grid">
         <div class="schedule-card"><span class="date-badge"></span><h3>Viernes</h3><span class="time-slot">09:30 hs</span><span class="time-slot">17:00 hs</span></div>
         <div class="schedule-card"><span class="date-badge"></span><h3>Sábado</h3><span class="time-slot">Sin horarios disponibles</span></div>
@@ -846,24 +895,20 @@
         <div class="schedule-card"><span class="date-badge"></span><h3>Miércoles</h3><span class="time-slot">10:30 hs</span><span class="time-slot">17:00 hs</span></div>
         <div class="schedule-card"><span class="date-badge"></span><h3>Jueves</h3><span class="time-slot">Sin horarios disponibles</span></div>
       </div>
-      <div class="schedule-note">💬 Comunicate con nosotros a traves de whatsapp.</div>
-    </div>
-  </section>
-
-  <!-- 8. AVISOS -->
-  <section class="avisos">
-    <div class="section-container">
-      <div class="section-label">Información Útil</div>
-      <h2 class="section-title">Avisos</h2>
+      
+      <!-- 8. AVISOS INTEGRADOS EN LA MISMA SECCIÓN DE HORARIOS -->
+      <div style="margin-top: 50px;"></div>
       <div class="avisos-grid">
         <div class="aviso-card"><div class="aviso-badge">🗓️</div><p>Los abonos se realizan del 1 al 10 de cada mes.</p></div>
         <div class="aviso-card"><div class="aviso-badge">⚠️</div><p>Pasada la fecha se abona un recargo del 15%.</p></div>
         <div class="aviso-card"><div class="aviso-badge">💳</div><p>La seña del pack de clases tiene un valor de $20.000.-</p></div>
       </div>
+
+      <div class="schedule-note">💬 Comunicate con nosotros a traves de whatsapp.</div>
     </div>
   </section>
 
-  <!-- 9. CONTACTO -->
+  <!-- 9. CONTACTO (Único color de fondo diferente) -->
   <section class="contact" id="contacto">
     <div class="section-container">
       <div class="section-label">Contacto</div>
@@ -930,6 +975,20 @@
 <script>
   let selectedPackName = '';
   let selectedPackPrice = '';
+
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
 
   function openBooking(packName, packPrice) {
     selectedPackName = packName;
