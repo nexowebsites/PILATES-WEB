@@ -327,45 +327,156 @@
       font-size: 13.5px;
     }
 
-    /* FOTOS Y VIDEOS (4 fotos horizontales 16:9) */
-    .media-container {
+    /* GALERÍA EN BURBUJAS */
+    .gallery-bubbles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(8px, 3vw, 40px);
+      justify-items: center;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .bubble {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark);
+      font-family: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 230px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .bubble-circle {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      padding: 4px;
+      border: 2px solid var(--border-color);
+      background: var(--bg-card-alt);
+      transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+    }
+
+    .bubble-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      filter: brightness(.7);
+      transition: filter .3s ease;
+    }
+
+    .bubble-plus {
+      position: absolute;
+      right: 4%;
+      bottom: 4%;
+      width: clamp(24px, 7vw, 34px);
+      height: clamp(24px, 7vw, 34px);
+      border-radius: 50%;
+      background: var(--olive);
+      color: #07090b;
+      font-size: clamp(16px, 4.5vw, 22px);
+      font-weight: 600;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .35s ease;
+    }
+
+    .bubble-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(12.5px, 3.4vw, 20px);
+      line-height: 1.2;
+      text-align: center;
+      transition: color .3s ease;
+    }
+
+    .bubble:hover .bubble-circle,
+    .bubble:focus-visible .bubble-circle {
+      transform: translateY(-4px);
+      border-color: var(--olive);
+    }
+
+    .bubble:hover .bubble-circle img,
+    .bubble.active .bubble-circle img {
+      filter: brightness(1);
+    }
+
+    .bubble.active .bubble-circle {
+      border-color: var(--olive);
+      box-shadow: 0 0 0 5px rgba(184,154,85,.15), 0 12px 30px rgba(0,0,0,.45);
+    }
+
+    .bubble.active .bubble-plus { transform: rotate(45deg); }
+    .bubble.active .bubble-name { color: var(--olive); }
+
+    .gallery-panel {
+      display: none;
       background: var(--bg-card);
-      padding: 30px;
-      border-radius: 20px;
       border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: clamp(14px, 3vw, 28px);
     }
 
-    .media-container p {
-      color: var(--brown);
-      font-size: 15px;
-      margin-bottom: 24px;
+    .gallery-panel.active {
+      display: block;
+      animation: panelIn .45s cubic-bezier(.16, 1, .3, 1);
     }
 
-    .media-grid-169 {
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery-panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 4.5vw, 24px);
+      margin-bottom: 16px;
+    }
+
+    .gallery-items {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 10px;
     }
 
-    .media-item-169 {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
+    .gallery-item {
+      aspect-ratio: 4 / 5;
       border-radius: 14px;
+      overflow: hidden;
       background: var(--bg-card-alt);
       border: 1px solid var(--border-color);
     }
 
-    .media-item-169 img {
+    .gallery-item img,
+    .gallery-item video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
     }
 
-    .media-item-169 img:hover {
-      transform: scale(1.03);
+    .gallery-items .gallery-item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 10;
+    }
+
+    @media (min-width: 700px) {
+      .gallery-items { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+      .gallery-items .gallery-item:last-child:nth-child(odd) { grid-column: auto; aspect-ratio: 4 / 5; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-panel.active { animation: none; }
+      .bubble-circle, .bubble-plus { transition: none; }
     }
 
     /* ¿POR QUÉ ELEGIRNOS? */
@@ -529,7 +640,7 @@
       border: 1px solid var(--border-color);
     }
 
-    /* CONTACTO (Color sutilmente diferenciado para destacar) */
+    /* CONTACTO */
     .contact {
       background: #040507;
       border-top: 1px solid var(--border-color);
@@ -688,7 +799,7 @@
       .hero-image { display: none; }
       nav { display: none; }
       .menu-toggle { display: flex; }
-      .teacher-grid, .schedule-grid, .avisos-grid, .contact-grid, .media-grid-169 { grid-template-columns: 1fr; }
+      .teacher-grid, .schedule-grid, .avisos-grid, .contact-grid { grid-template-columns: 1fr; }
       section { padding: 50px 5%; }
     }
   </style>
@@ -793,32 +904,71 @@
     </div>
   </section>
 
-  <!-- 4. FOTOS Y VIDEOS (4 fotos horizontales 16:9) -->
-  <section class="media-section">
+  <!-- 4. FOTOS Y VIDEOS (BURBUJAS) -->
+  <section class="media-section" id="galeria">
     <div class="section-container">
       <div class="section-label">Galería</div>
       <h2 class="section-title">¿Cómo Trabajamos?</h2>
-      <div class="media-container">
-        <p>Explora un poco de nuestro espacio y clases.</p>
-        <div class="media-grid-169">
-          <!-- Foto 1 -->
-          <div class="media-item-169">
-            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/IMG_9864.JPG?raw=true" alt="Estudio Pilates 1">
-          </div>
-          <!-- Foto 2 -->
-          <div class="media-item-169">
-            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/IMG_9865.JPG?raw=true" alt="Estudio Pilates 2">
-          </div>
-          <!-- Foto 3 -->
-          <div class="media-item-169">
-            <img src="https://github.com/nexowebsites/PILATES-WEB/blob/main/IMG_9862.JPG?raw=true" alt="Estudio Pilates 3">
-          </div>
-          <!-- video 1 -->
-          <div class="media-item-169">
-            <video src="https://github.com/nexowebsites/PILATES-WEB/raw/refs/heads/main/VIDEO-2026-10-08-12-41-54.mp4" alt="Estudio Pilates 4" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
-          </div>
+
+      <div class="gallery-bubbles">
+
+        <button class="bubble" data-target="cat-entrenamiento" aria-expanded="false">
+          <span class="bubble-circle">
+            <img src="CAMBIAR-FOTO-PORTADA-ENTRENAMIENTO.jpg" alt="Entrenamiento físico">
+            <span class="bubble-plus">+</span>
+          </span>
+          <span class="bubble-name">Entrenamiento Físico</span>
+        </button>
+
+        <button class="bubble" data-target="cat-rehabilitacion" aria-expanded="false">
+          <span class="bubble-circle">
+            <img src="CAMBIAR-FOTO-PORTADA-REHABILITACION.jpg" alt="Rehabilitación y embarazo">
+            <span class="bubble-plus">+</span>
+          </span>
+          <span class="bubble-name">Rehabilitación y Embarazo</span>
+        </button>
+
+        <button class="bubble" data-target="cat-ninos" aria-expanded="false">
+          <span class="bubble-circle">
+            <img src="CAMBIAR-FOTO-PORTADA-NINOS.jpg" alt="Niños y adolescentes">
+            <span class="bubble-plus">+</span>
+          </span>
+          <span class="bubble-name">Niños y Adolescentes</span>
+        </button>
+
+      </div>
+
+      <!-- ENTRENAMIENTO FÍSICO: 3 videos + 1 foto -->
+      <div class="gallery-panel" id="cat-entrenamiento">
+        <div class="gallery-panel-title">Entrenamiento Físico</div>
+        <div class="gallery-items">
+          <div class="gallery-item"><video src="CAMBIAR-VIDEO-1.mp4" muted loop playsinline preload="metadata"></video></div>
+          <div class="gallery-item"><video src="CAMBIAR-VIDEO-2.mp4" muted loop playsinline preload="metadata"></video></div>
+          <div class="gallery-item"><video src="CAMBIAR-VIDEO-3.mp4" muted loop playsinline preload="metadata"></video></div>
+          <div class="gallery-item"><img src="CAMBIAR-FOTO-1.jpg" alt="Entrenamiento físico" loading="lazy"></div>
         </div>
       </div>
+
+      <!-- REHABILITACIÓN Y EMBARAZO: 3 fotos -->
+      <div class="gallery-panel" id="cat-rehabilitacion">
+        <div class="gallery-panel-title">Rehabilitación y Embarazo</div>
+        <div class="gallery-items">
+          <div class="gallery-item"><img src="CAMBIAR-FOTO-1.jpg" alt="Rehabilitación y embarazo 1" loading="lazy"></div>
+          <div class="gallery-item"><img src="CAMBIAR-FOTO-2.jpg" alt="Rehabilitación y embarazo 2" loading="lazy"></div>
+          <div class="gallery-item"><img src="CAMBIAR-FOTO-3.jpg" alt="Rehabilitación y embarazo 3" loading="lazy"></div>
+        </div>
+      </div>
+
+      <!-- NIÑOS Y ADOLESCENTES: 2 fotos + 1 video -->
+      <div class="gallery-panel" id="cat-ninos">
+        <div class="gallery-panel-title">Niños y Adolescentes</div>
+        <div class="gallery-items">
+          <div class="gallery-item"><img src="CAMBIAR-FOTO-1.jpg" alt="Niños y adolescentes 1" loading="lazy"></div>
+          <div class="gallery-item"><img src="CAMBIAR-FOTO-2.jpg" alt="Niños y adolescentes 2" loading="lazy"></div>
+          <div class="gallery-item"><video src="CAMBIAR-VIDEO-1.mp4" muted loop playsinline preload="metadata"></video></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1000,6 +1150,40 @@
     window.open(`https://wa.me/5491123063516?text=${encodeURIComponent(mensaje)}`, '_blank');
     closeBooking();
   }
+
+  /* GALERÍA EN BURBUJAS */
+  const bubbleBtns = document.querySelectorAll('.bubble');
+  const galleryPanels = document.querySelectorAll('.gallery-panel');
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  function setPanel(id) {
+    bubbleBtns.forEach(b => {
+      const on = b.dataset.target === id;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-expanded', on);
+    });
+    galleryPanels.forEach(p => {
+      const on = p.id === id;
+      p.classList.toggle('active', on);
+      p.querySelectorAll('video').forEach(v => {
+        if (on) { v.play().catch(() => {}); } else { v.pause(); }
+      });
+    });
+  }
+
+  bubbleBtns.forEach(btn => {
+    const id = btn.dataset.target;
+    btn.addEventListener('click', () => {
+      const isOpen = btn.classList.contains('active');
+      setPanel(isOpen ? null : id);
+      if (!isOpen && !canHover) {
+        setTimeout(() => document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
+      }
+    });
+    if (canHover) {
+      btn.addEventListener('mouseenter', () => setPanel(id));
+    }
+  });
 </script>
 
 </body>
